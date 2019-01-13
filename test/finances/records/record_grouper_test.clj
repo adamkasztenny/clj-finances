@@ -26,7 +26,7 @@
 
 (deftest group-one-based-on-configuration
   (def grouping (record_grouper/group-records records configuration))
-  (is ( = (first grouping) {:food [(nth records 0)]}))
+  (is ( = (first grouping) {:food (subvec records 0 1)}))
 )
 
 (deftest group-multiple-based-on-configuration
