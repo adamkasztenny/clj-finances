@@ -3,19 +3,19 @@
 
 (def records [
                     {:date "2019/01/01",
-                    :description "PHO"
+                    :description "PHO 42"
                     :out 25.16
                     :in 0
                     :account_total 103.54}
 
                     {:date "2019/01/31",
-                    :description "INSURANCE"
+                    :description "INSURANCE COMPANY #1"
                     :out 31.42 
                     :in 0
                     :account_total 72.12}
 
                     {:date "2019/02/31",
-                    :description "INSURANCE"
+                    :description "INSURANCE COMPANY #2"
                     :out 31.42 
                     :in 0
                     :account_total 40.70}
