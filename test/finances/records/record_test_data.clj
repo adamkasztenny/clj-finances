@@ -18,7 +18,14 @@
                     :description "INSURANCE"
                     :out 31.42 
                     :in 0
-                    :account_total 40.70}])
+                    :account_total 40.70}
+
+                    {:date "2019/03/15",
+                    :description "CLOJURE BOOK"
+                    :out 16.31
+                    :in 0
+                    :account_total 24.39}
+                    ])
 
 (def configuration {:food ["PHO" "BANH MI"]
                     :insurance ["INSURANCE"]})
