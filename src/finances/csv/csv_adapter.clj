@@ -1,7 +1,7 @@
 (ns finances.csv.csv_adapter 
   (:gen-class))
 
-(def columns 
+(def ^:private columns 
 	{:date 0
 	 :description 1
 	 :out 2
@@ -10,11 +10,15 @@
 	}
 )
 
-(defn adapt [csv-row]
+(defn- adapt-row [csv-row]
 	{:date (nth csv-row (get columns :date))
 	 :description (nth csv-row (get columns :description))
 	 :out (nth csv-row (get columns :out))
 	 :in (nth csv-row (get columns :in))
 	 :account_total (nth csv-row (get columns :account_total))
 	}
+)
+
+(defn adapt [csv] 
+  (map adapt-row csv)
 )
