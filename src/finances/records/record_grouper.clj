@@ -2,8 +2,6 @@
   (:require [clojure.string :as string])
   (:gen-class))
 
-;;(defn- in? [coll x] (string/includes? x (string/join " " coll)))
-
 (defn- in? [descriptions description] (not (empty? (filter (fn [d] (string/includes? description d)) descriptions))))
 
 (defn group-records [records configuration]
