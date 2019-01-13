@@ -1,6 +1,6 @@
-(ns finances.filter.record_filter_test
+(ns finances.records.record_grouper_test
   (:require [clojure.test :refer :all])
-  (:require [finances.filter.record_filter :as record_filter])
+  (:require [finances.records.record_grouper :as record_grouper])
   (:gen-class))
 
 (def records [{:date "2019/01/01",
@@ -24,12 +24,12 @@
 (def configuration {:food ["PHO" "BANH MI"]
                     :insurance ["INSURANCE"]})
 
-(deftest filter-one-based-on-configuration
-  (def filterResult (record_filter/filter-records records configuration))
-  (is ( = (first filterResult) {:food [(nth records 0)]}))
+(deftest group-one-based-on-configuration
+  (def grouping (record_grouper/group-records records configuration))
+  (is ( = (first grouping) {:food [(nth records 0)]}))
 )
 
-(deftest filter-multiple-based-on-configuration
-  (def filterResult (record_filter/filter-records records configuration))
-  (is ( = (last filterResult) {:insurance (subvec records 1 3)}))
+(deftest group-multiple-based-on-configuration
+  (def grouping (record_grouper/group-records records configuration))
+  (is ( = (last grouping) {:insurance (subvec records 1 3)}))
 )

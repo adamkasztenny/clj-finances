@@ -1,4 +1,4 @@
-(ns finances.filter.record_filter
+(ns finances.records.record_grouper
   (:gen-class))
 
 ;; contains? was clausing me problems...
@@ -6,7 +6,7 @@
 ;; for clearing this up
 (defn- in? [coll x] (if (some #{x} coll) true false))
 
-(defn filter-records [records configuration]
+(defn group-records [records configuration]
   (defn records-for-descriptions [descriptions]
     (filter (fn [record] (in? descriptions (record :description))) records)
   ) 
