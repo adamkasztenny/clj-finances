@@ -7,4 +7,4 @@
   (with-open [opened-file (io/reader filename)]
     (doall
       (csv/read-csv opened-file)))
-  )
+)
