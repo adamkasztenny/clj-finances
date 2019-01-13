@@ -1,4 +1,4 @@
-(ns clj-finances.core
+(ns finances.core
   (:gen-class))
 
 (defn -main [& args]
