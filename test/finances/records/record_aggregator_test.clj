@@ -6,11 +6,11 @@
 
 (deftest aggregate-one
   (def aggregation (record_aggregator/aggregate-records grouped-records))
-  (is (= (first aggregation) {:food {:total 25.16 :records (grouped-records :food)}}))
+  (is (= (first aggregation) {:food (aggregated-records :food)}))
 )
 
 (deftest aggregate-multiple
   (def aggregation (record_aggregator/aggregate-records grouped-records))
-  (is (= (last aggregation) {:insurance {:total 62.84 :records (grouped-records :insurance)}}))
+  (is (= (last aggregation) {:insurance (aggregated-records :insurance)}))
 )
 
