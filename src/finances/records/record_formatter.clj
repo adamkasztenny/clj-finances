@@ -9,7 +9,10 @@
       "======================\n"
       "Total:" (aggregation :total)
       "\nRecords: " (aggregation :records)
+      "\n"
     ]))
 
-  (string/join "\n" (map format-aggregation aggregated-records))
+  (defn format-record [record] (string/join "\n" (map format-aggregation record)))
+
+  (map format-record aggregated-records)
 )
