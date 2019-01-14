@@ -14,12 +14,12 @@
 
 (deftest format-aggregates-includes-totals
   (def formatting (record_formatter/format-records aggregated-records))
-  (is (= true (string/includes? formatting (str ((aggregated-records :food) :total)))))
-  (is (= true (string/includes? formatting (str ((aggregated-records :insurance) :total)))))
+  (is (= true (string/includes? formatting (str ((first aggregated-records) :total)))))
+  (is (= true (string/includes? formatting (str ((last aggregated-records) :total)))))
 )
 
 (deftest format-aggregates-includes-records
   (def formatting (record_formatter/format-records aggregated-records))
-  (is (= true (string/includes? formatting (str ((aggregated-records :food) :records)))))
-  (is (= true (string/includes? formatting (str ((aggregated-records :insurance) :records)))))
+  (is (= true (string/includes? formatting (str ((first aggregated-records) :records)))))
+  (is (= true (string/includes? formatting (str ((last aggregated-records) :records)))))
 )

@@ -14,5 +14,5 @@
 
   (defn format-record [record] (string/join "\n" (map format-aggregation record)))
 
-  (map format-record aggregated-records)
+  (string/join "" (map format-record aggregated-records))
 )
