@@ -11,5 +11,5 @@
 
 (deftest group-multiple-based-on-configuration
   (def grouping (record_grouper/group-records records configuration))
-  (is ( = (last grouping) {:insurance (grouped-records :insurance)}))
+  (is ( = (nth grouping 1) {:insurance (grouped-records :insurance)}))
 )
