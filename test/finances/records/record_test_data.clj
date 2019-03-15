@@ -33,5 +33,5 @@
 (def grouped-records {:food (subvec records 0 1)
                       :insurance (subvec records 1 3)})
 
-(def aggregated-records [{:food {:total 25.16 :records (grouped-records :food)}}
-                        {:insurance {:total 62.84 :records (grouped-records :insurance)}}])
+(def aggregated-records [{:food {:total-out 25.16 :records (grouped-records :food)}}
+                        {:insurance {:total-out 62.84 :records (grouped-records :insurance)}}])

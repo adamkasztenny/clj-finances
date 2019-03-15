@@ -12,10 +12,10 @@
   (is (= true (string/includes? formatting "======================")))
 )
 
-(deftest format-aggregates-includes-totals
+(deftest format-aggregates-includes-total-outs
   (def formatting (record_formatter/format-records aggregated-records))
-  (is (= true (string/includes? formatting (str ((first aggregated-records) :total)))))
-  (is (= true (string/includes? formatting (str ((last aggregated-records) :total)))))
+  (is (= true (string/includes? formatting (str ((first aggregated-records) :total-out)))))
+  (is (= true (string/includes? formatting (str ((last aggregated-records) :total-out)))))
 )
 
 (deftest format-aggregates-includes-records
