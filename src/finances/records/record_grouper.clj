@@ -6,9 +6,7 @@
 
 (defn group-records [records configuration]
   (defn records-for-descriptions [descriptions]
-    (filter (fn [record] (in? descriptions (record :description))) records)
-  ) 
+    (filter (fn [record] (in? descriptions (record :description))) records))
 
   (map (fn [[group descriptions]] {group (records-for-descriptions descriptions)})
-       configuration) 
-)
+       configuration))

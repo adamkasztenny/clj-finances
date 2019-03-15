@@ -6,10 +6,8 @@
 
 (deftest group-one-based-on-configuration
   (def grouping (record_grouper/group-records records configuration))
-  (is ( = (first grouping) {:food (grouped-records :food)}))
-)
+  (is (= (first grouping) {:food (grouped-records :food)})))
 
 (deftest group-multiple-based-on-configuration
   (def grouping (record_grouper/group-records records configuration))
-  (is ( = (nth grouping 1) {:insurance (grouped-records :insurance)}))
-)
+  (is (= (nth grouping 1) {:insurance (grouped-records :insurance)})))

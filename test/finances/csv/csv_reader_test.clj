@@ -4,11 +4,9 @@
   (:gen-class))
 
 (deftest empty-csv
-  (is (= [] (csv_reader/read-csv "test/resources/empty.csv")))
-)
+  (is (= [] (csv_reader/read-csv "test/resources/empty.csv"))))
 
 (deftest nonempty-csv
   (is (= [["a" "b" "c" "d"]
-          ["e" "f" "g" "h"]] 
-         (csv_reader/read-csv "test/resources/test.csv")))
-)
+          ["e" "f" "g" "h"]]
+         (csv_reader/read-csv "test/resources/test.csv"))))

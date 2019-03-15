@@ -8,8 +8,7 @@
   (:gen-class))
 
 (defn- usage []
-  (println "USAGE: finances [CSV input file] [EDN configuration input file]") 
-)
+  (println "USAGE: finances [CSV input file] [EDN configuration input file]"))
 
 (defn- run-finances [args]
   (def csv-file (first args))
@@ -21,13 +20,11 @@
   (def records (csv_adapter/adapt csv))
   (def grouped-records (record_grouper/group-records records configuration))
   (def aggregated-records (record_aggregator/aggregate-records grouped-records))
-  (record_formatter/format-records aggregated-records)
-)
+  (record_formatter/format-records aggregated-records))
 
 (defn -main [& args]
   (when (< (count args) 2)
     (usage)
     (System/exit 1))
 
-  (println (run-finances args))
-)
+  (println (run-finances args)))

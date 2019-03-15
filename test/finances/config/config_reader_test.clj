@@ -5,7 +5,5 @@
 
 (deftest read-config
   (def config {:a "b"
-               :c ["d" "e"]
-              })
-  (is (= config (config_reader/read-config "test/resources/test.edn")))
-)
+               :c ["d" "e"]})
+  (is (= config (config_reader/read-config "test/resources/test.edn"))))

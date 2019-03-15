@@ -3,5 +3,4 @@
   (:gen-class))
 
 (defn read-config [filename]
-  (edn/read-string (slurp filename))
-)
+  (edn/read-string (slurp filename)))
