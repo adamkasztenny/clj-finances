@@ -8,6 +8,7 @@
       (string/capitalize (subs (str grouping) 1))
       "======================\n"
       "Total Out:" (aggregation :total-out)
+      "Total In:" (aggregation :total-in)
       "\nRecords: " (string/join "\n" (aggregation :records))
       "\n"
     ]))
