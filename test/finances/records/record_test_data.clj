@@ -36,7 +36,8 @@
 
 (def grouped-records {:food (subvec records 0 1)
                       :insurance (subvec records 1 3)
-                      :pay (subvec records 4 5)})
+                      :pay (subvec records 4 5)
+                      :uncategorized (subvec records 3 4)})
 
 (def aggregated-records [{:food {:total-out 25.16 :total-in 0 :records (grouped-records :food)}}
                          {:insurance {:total-out 62.84 :total-in 0 :records (grouped-records :insurance)}}

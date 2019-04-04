@@ -11,3 +11,7 @@
 (deftest group-multiple-based-on-configuration
   (def grouping (record_grouper/group-records records configuration))
   (is (= (nth grouping 1) {:insurance (grouped-records :insurance)})))
+
+(deftest group-uncategorized-records
+  (def grouping (record_grouper/group-records records configuration))
+  (is (= (last grouping) {:uncategorized (grouped-records :uncategorized)})))
