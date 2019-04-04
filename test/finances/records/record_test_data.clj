@@ -41,4 +41,5 @@
 
 (def aggregated-records {:food {:total-out 25.16 :total-in 0 :records (grouped-records :food)}
                          :insurance {:total-out 62.84 :total-in 0 :records (grouped-records :insurance)}
-                         :pay {:total-out 0 :total-in 103.14 :records (grouped-records :pay)}})
+                         :pay {:total-out 0 :total-in 103.14 :records (grouped-records :pay)}
+                         :uncategorized {:total-out 16.31 :total-in 0 :records (grouped-records :uncategorized)}})
