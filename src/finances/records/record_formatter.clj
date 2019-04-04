@@ -11,6 +11,4 @@
                                                                   "\nRecords: " (string/join "\n" (aggregation :records))
                                                                   "\n"]))
 
-  (defn format-record [record] (string/join "\n" (map format-aggregation record)))
-
-  (string/join "" (map format-record aggregated-records)))
+  (string/join "" (map format-aggregation aggregated-records)))

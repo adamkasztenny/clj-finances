@@ -16,4 +16,4 @@
   (def ungrouped-records (into () (set/difference (set records) (set records-with-a-group))))
   (def uncategorized-records {:uncategorized ungrouped-records})
 
-  (concat grouped-records [uncategorized-records]))
+  (into {} (concat grouped-records [uncategorized-records])))

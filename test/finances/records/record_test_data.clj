@@ -39,6 +39,6 @@
                       :pay (subvec records 4 5)
                       :uncategorized (subvec records 3 4)})
 
-(def aggregated-records [{:food {:total-out 25.16 :total-in 0 :records (grouped-records :food)}}
-                         {:insurance {:total-out 62.84 :total-in 0 :records (grouped-records :insurance)}}
-                         {:pay {:total-out 0 :total-in 103.14 :records (grouped-records :pay)}}])
+(def aggregated-records {:food {:total-out 25.16 :total-in 0 :records (grouped-records :food)}
+                         :insurance {:total-out 62.84 :total-in 0 :records (grouped-records :insurance)}
+                         :pay {:total-out 0 :total-in 103.14 :records (grouped-records :pay)}})

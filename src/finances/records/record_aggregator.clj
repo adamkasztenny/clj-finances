@@ -5,9 +5,9 @@
   (defn total-cost [records] (reduce + (map (fn [record] (record :out)) records)))
   (defn total-gain [records] (reduce + (map (fn [record] (record :in)) records)))
 
-  (defn aggregate-record [record]
-    (map (fn [[group records]] {group {:total-out (total-cost records)
-                                       :total-in (total-gain records)
-                                       :records records}}) record))
+  (defn aggregate-record [[group records]]
+    {group {:total-out (total-cost records)
+            :total-in (total-gain records)
+            :records records}})
 
-  (mapcat aggregate-record grouped-records))
+  (into {} (map aggregate-record grouped-records)))

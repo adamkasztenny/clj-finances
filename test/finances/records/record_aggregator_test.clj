@@ -5,14 +5,14 @@
   (:gen-class))
 
 (deftest aggregate-one
-  (def aggregation (record_aggregator/aggregate-records [{:food (grouped-records :food)}]))
-  (is (= (first aggregation) (first aggregated-records))))
+  (def aggregation (record_aggregator/aggregate-records grouped-records))
+  (is (= (aggregation :food) (aggregated-records :food))))
 
 (deftest aggregate-one-with-gain
-  (def aggregation (record_aggregator/aggregate-records [{:pay (grouped-records :pay)}]))
-  (is (= (last aggregation) (last aggregated-records))))
+  (def aggregation (record_aggregator/aggregate-records grouped-records))
+  (is (= (aggregation :pay) (aggregated-records :pay))))
 
 (deftest aggregate-multiple
-  (def aggregation (record_aggregator/aggregate-records [{:insurance (grouped-records :insurance)}]))
-  (is (= (last aggregation) (nth aggregated-records 1))))
+  (def aggregation (record_aggregator/aggregate-records grouped-records))
+  (is (= (aggregation :insurance) (aggregated-records :insurance))))
 
