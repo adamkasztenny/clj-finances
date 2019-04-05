@@ -11,15 +11,33 @@
   (:gen-class))
 
 (deftest returns-formatted-finances-aggregation
+  (def csv-file-name "some-csv-file.csv")
+  (def csv-values [["some" "csv" "values"]])
+
+  (def configuration-file-name "some-config-file.edn")
+
   (def formatted-records "Formatted Records Mock")
 
-  (with-redefs [csv_reader/read-csv (fn [file] ["some" "csv" "values"])
-                csv_adapter/adapt (fn [csv] records)
+  (with-redefs [csv_reader/read-csv (fn [file-name]
+                                      (is (= file-name csv-file-name))
+                                      csv-values)
+                csv_adapter/adapt (fn [csv]
+                                    (is (= csv csv-values))
+                                    records)
 
-                config_reader/read-config (fn [config] configuration)
+                config_reader/read-config (fn [file-name]
+                                            (is (= file-name configuration-file-name))
+                                            configuration)
 
-                record_grouper/group-records (fn [records configuration] grouped-records)
-                record_aggregator/aggregate-records (fn [records] aggregated-records)
-                record_formatter/format-records (fn [records] formatted-records)]
+                record_grouper/group-records (fn [raw-records config]
+                                               (is (= raw-records records))
+                                               (is (= config configuration))
+                                               grouped-records)
+                record_aggregator/aggregate-records (fn [records]
+                                                      (is (= records grouped-records))
+                                                      aggregated-records)
+                record_formatter/format-records (fn [records]
+                                                  (is (= records aggregated-records))
+                                                  formatted-records)]
 
-    (is (= (api/formatted-finances-aggregation "some-csv-file.csv" "some-config-file.csv") formatted-records))))
+    (is (= (api/formatted-finances-aggregation csv-file-name configuration-file-name) formatted-records))))
