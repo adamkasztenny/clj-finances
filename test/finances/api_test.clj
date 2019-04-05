@@ -11,15 +11,15 @@
   (:gen-class))
 
 (deftest returns-formatted-finances-aggregation
-	(def formatted-records "Formatted Records Mock")
+  (def formatted-records "Formatted Records Mock")
 
-    (with-redefs [csv_reader/read-csv (fn [file] ["some" "csv" "values"])
-                  csv_adapter/adapt (fn [csv] records)
+  (with-redefs [csv_reader/read-csv (fn [file] ["some" "csv" "values"])
+                csv_adapter/adapt (fn [csv] records)
 
-                  config_reader/read-config (fn [config] configuration)
+                config_reader/read-config (fn [config] configuration)
 
-                  record_grouper/group-records (fn [records configuration] grouped-records)
-                  record_aggregator/aggregate-records (fn [records] aggregated-records)
-                  record_formatter/format-records (fn [records] formatted-records)]
+                record_grouper/group-records (fn [records configuration] grouped-records)
+                record_aggregator/aggregate-records (fn [records] aggregated-records)
+                record_formatter/format-records (fn [records] formatted-records)]
 
-	(is (= (api/formatted-finances-aggregation "some-csv-file.csv" "some-config-file.csv") formatted-records))))
+    (is (= (api/formatted-finances-aggregation "some-csv-file.csv" "some-config-file.csv") formatted-records))))

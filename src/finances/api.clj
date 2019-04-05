@@ -7,7 +7,7 @@
   (:require [finances.records.record_formatter :as record_formatter])
   (:gen-class))
 
-(defn formatted-finances-aggregation [csv-file-name configuration-file-name] 
+(defn formatted-finances-aggregation [csv-file-name configuration-file-name]
   (def csv (csv_reader/read-csv csv-file-name))
   (def configuration (config_reader/read-config configuration-file-name))
 
