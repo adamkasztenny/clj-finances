@@ -5,7 +5,7 @@
   :dependencies [
                  [org.clojure/clojure "1.10.0"]
                  [org.clojure/data.csv "0.1.4"]]
-  :plugins [[lein-cljfmt "0.6.4"]]
+  :plugins [[lein-cljfmt "0.6.4"] [lein-cloverage "1.1.1"]]
   :main finances.core
 )
 
